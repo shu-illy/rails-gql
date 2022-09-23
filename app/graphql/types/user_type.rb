@@ -8,5 +8,6 @@ module Types
     field :description, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :novels, [NovelType], '小説', null: false
   end
 end

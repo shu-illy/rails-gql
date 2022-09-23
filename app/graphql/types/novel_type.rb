@@ -8,5 +8,6 @@ module Types
     field :synopsis, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
+    field :user, UserType, 'ユーザー', null: false
   end
 end
