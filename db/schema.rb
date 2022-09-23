@@ -13,10 +13,12 @@
 ActiveRecord::Schema.define(version: 2022_09_23_220436) do
 
   create_table "novels", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "title"
     t.string "synopsis"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_novels_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -27,4 +29,5 @@ ActiveRecord::Schema.define(version: 2022_09_23_220436) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "novels", "users"
 end
