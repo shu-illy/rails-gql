@@ -18,5 +18,17 @@ module Types
     def users
       User.all
     end
+
+    field :novel, Types::NovelType, "Find Novel by ID", null: true do
+      argument :id, ID, required: true
+    end
+    def novel(id:)
+      Novel.find(id)
+    end
+
+    field :novels, [Types::NovelType], null: false
+    def users
+      Novels.all
+    end
   end
 end
