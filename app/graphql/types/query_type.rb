@@ -7,17 +7,9 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
-    field :user, Types::UserType, "Find User by ID", null: true do
-      argument :id, ID, required: true
-    end
-    def user(id:)
-      User.find(id)
-    end
-
-    field :users, [Types::UserType], null: false
-    def users
-      User.all
-    end
+    field :user, resolver: Queries::Resolvers::User
+    field :users, resolver: Queries::Resolvers::Users
+    
 
     field :novel, Types::NovelType, "Find Novel by ID", null: true do
       argument :id, ID, required: true
